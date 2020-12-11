@@ -2,8 +2,13 @@ from pydantic import BaseModel
 #from datetime import datetime
 
 class InventoryIn(BaseModel):
-    name: str
-    cantidad: int
+    id: int
+    quantity: int
+    price: int 
+    discount: int
 
 class InventoryOut(BaseModel):
-    cantidad: int
+    name: str
+    price: int
+    discount: int
+    total_price: int
