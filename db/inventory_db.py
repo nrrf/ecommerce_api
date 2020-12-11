@@ -32,6 +32,7 @@ database_inventory = {100:InventoryInDB(**{"id":100,
                               "total_price":250  }),  
                               }
 
+# get, nos devuelve None si no existe o un item del inventario si existe
 def get_inventory(id: int): 
     if id in database_inventory.keys(): 
         return database_inventory[id]

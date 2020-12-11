@@ -22,7 +22,7 @@ async def inventory_get(inventory_id: int):
     return inventory_out
 
 
-# selecciona persona
+# actualizar producto
 @api.put("/producto")
 async def product_update(inventory: InventoryIn): 
     inventory_in = get_inventory(inventory.id)
