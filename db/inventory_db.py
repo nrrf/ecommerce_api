@@ -39,7 +39,7 @@ def get_inventory(id: int):
     else: 
         return None
 
-
+# actualizacion por id del item q esta en el inventario
 def update_inventory(inventory: InventoryInDB): 
     database_inventory[inventory.id] = inventory
     #database_inventory[inventory.id].quantity -= inventory.quantity
