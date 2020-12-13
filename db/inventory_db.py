@@ -17,13 +17,13 @@ database_inventory = {100:InventoryInDB(**{"id":100,
                               "price": 350,
                               "quantity": 2,
                               "discount": 0 ,
-                              "total_price":400}),
+                              "total_price":350}),
                 101:InventoryInDB(**{"id":101,
                               "name": "Xbox Series X",
                               "price": 250,
                               "quantity": 5,
                               "discount": 0,
-                              "total_price":400}),  
+                              "total_price":250}),  
                 102:InventoryInDB(**{"id":102,
                               "name": "Nintendo Switch",
                               "price": 250,
@@ -44,3 +44,7 @@ def update_inventory(inventory: InventoryInDB):
     database_inventory[inventory.id] = inventory
     #database_inventory[inventory.id].quantity -= inventory.quantity
     return inventory
+
+# para obtener el diccionario (base de datos completa)
+def get_all(): 
+    return database_inventory

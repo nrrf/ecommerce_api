@@ -2,7 +2,7 @@ import math
 from db.customer_db import CustomerInDB 
 from db.customer_db import get_customer, update_customer 
 from db.inventory_db import InventoryInDB 
-from db.inventory_db import get_inventory,update_inventory
+from db.inventory_db import get_inventory,update_inventory, get_all
 from models.customer_models import CustomerIn, CustomerOut, CustomerUpdateIn, CustomerUpdateOut
 from models.inventory_models import InventoryIn, InventoryOut
 
@@ -16,7 +16,7 @@ api = FastAPI()
 
 
 # obtener producto del inventario
-@api.get("/producto/{inventory_id}")
+@api.get("/productos/{inventory_id}")
 async def inventory_get(inventory_id: int): 
     inventory_in = get_inventory(inventory_id) 
     if inventory_in == None: 
@@ -27,7 +27,7 @@ async def inventory_get(inventory_id: int):
 
 
 # actualizar producto
-@api.put("/producto")
+@api.put("/productos/actualizar")
 async def product_update(inventory: InventoryIn): 
     inventory_in = get_inventory(inventory.id)
     if inventory_in == None: 
@@ -44,6 +44,17 @@ async def product_update(inventory: InventoryIn):
     inventory_out = InventoryOut(**inventory_in.dict())
     return inventory_out
     
+
+# añadir todo lo q se encuentra inventario (with Out format)
+@api.get("/productos")
+async def all_get(): 
+    #print(type(get_all()))
+    dict_inventory = get_all()
+    list_out = []
+    for v in  dict_inventory.values(): 
+        print(type(v))
+        list_out.append(InventoryOut(**v.dict()))  
+    return list_out
 ## Peticiones de Customer 
 
 @api.post("/customer/auth/")
