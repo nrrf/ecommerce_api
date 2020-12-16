@@ -13,11 +13,6 @@ from fastapi import HTTPException
 
 api = FastAPI()
 
-
-
-
-api = FastAPI()
-
 ### Peticiones de Inventory 
 
 from fastapi.middleware.cors import CORSMiddleware
