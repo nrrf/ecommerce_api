@@ -73,7 +73,7 @@ async def auth_customer(customer_in: CustomerIn):
     if customer_in_db == None:
         raise HTTPException(status_code=404, detail="El cliente no existe")
     if customer_in_db.password != customer_in.password:
-        return {"Autenticado": False}
+        raise HTTPException(status_code=403, detail="El password no es correcto")
     return {"Autenticado": True}
 
 @api.get("/customer/fullName/{username}")
