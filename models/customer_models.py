@@ -12,18 +12,11 @@ class CustomerOut(BaseModel):
     secondLastname: str
     address: str
     numberPhone: int
+    class Config:
+        orm_mode = True
 
 class CustomerUpdateIn(BaseModel):
     username: str
     password: str
-    address: str
-    numberPhone: int
-
-class CustomerUpdateOut(BaseModel):
-    username: str
-    name: str
-    secondName: str
-    lastname: str
-    secondLastname: str
     address: str
     numberPhone: int

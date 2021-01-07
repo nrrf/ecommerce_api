@@ -12,3 +12,5 @@ class InventoryOut(BaseModel):
     price: int
     discount: int
     total_price: int
+    class Config:
+        orm_mode = True
